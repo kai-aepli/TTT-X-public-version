@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tic-Tac-Toe-Xtended</title>
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- img source: https://www.flaticon.com/free-icon/tic-tac-toe_1021366, "Free for personal and commercial purpose with attribution". Had some problems until the icon showed, maybe because of the wrong format (png). Claude helped me figure it out. -->
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" type="module" defer></script> <!-- Claude told me that DOMContentLoaded is often not really necessary. I wanted to know whether there is stuff that shouldn't go into DOMContentLoaded and it told me that it often is redundant-->
+    </head>
+    <body>
+        <form id="depth_form" method="POST">
+            <select name="field_depth">
+                <option selected value="">Select the number of layers</option>
+                <!-- generated options according to depth_limit -->
+            </select>
+            <span class="info-parent">
+                <span class="info">🛈</span>
+                <span class="info-text">The amount of layers determines how deep the tic-tac-toe field is. If there are two layers, each cell of the tic-tac-toe-field has another tic tac toe field in it, and so on.</span>
+            </span>
+            <select name="mode">
+                <option selected value="">Select the mode</option>
+                <option value="0">unrestricted (default for 1 layer)</option>
+                <!-- generated options according to depth_limit -->
+                <option value="r">random each move</option>
+                <option value="u">upwards each move</option>
+                <option value="d">downwards each move</option>
+            </select>
+            <span class="info-parent">
+                <span class="info">🛈</span> 
+                <span class="info-text">The mode number determines how many layers above the lowest layer will be the playable area (green) that shifts after each move. In a default mode, the position of the placed X or O will also be the position of the according cell layer in which the next move has to take place. Just try it out. Within the modes "random", "upwards" and "downwards" the cell layer shifts after each move.</span>
+            </span>
+            <button type="submit">Generate field</button>
+        </form>
+        <div id="player_turn"></div>
+        <div id="error"></div>
+        <div id="board"></div>
+    </body>
+</html>

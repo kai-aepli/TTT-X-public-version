@@ -1,0 +1,95 @@
+.info {
+    visibility: visible;
+    position: relative;
+}
+.info-text {
+    visibility: inherit;
+    position: absolute;
+    background-color: white;
+    z-index: 1; /* whether it is in front or in the back */
+}
+.info-text:hover {
+    visibility: hidden;
+}
+.info-parent {
+    visibility: hidden;   
+}
+.info-parent:hover {
+    visibility: visible;
+    cursor: default;
+}
+#board {
+    display: grid;
+    width: 30rem;
+    height: 30rem;
+    border: 0.5rem solid black;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.cell {
+    display: grid;
+    position: relative;
+    border: var(--border);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.lastcell {
+    border: var(--border);
+}
+.fieldbutton {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-position: center; /* This was a little hard to find out. First, I tried to generate a clone of the image and then scaling the clone accordingly. That worked, however, it shifted the cells around. I tried to fix it by modifying multiple properties such as display, but ultimately it didn't work. That's when the github copilot helped me come to an idea to just change the button's background color, which I implemented myself but improved the generation of the image by applying multiple attributes which the AI pointed out were necessary. Now the cells don't shift around anymore. */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+}
+.fieldimage {
+    height: 100%;
+    width: 100%;
+}
+div[position="0"] {
+    border-left: none;
+    border-top: none;
+}
+div[position="1"] {
+    border-top: none;
+}
+div[position="2"] {
+    border-right: none;
+    border-top: none;
+}
+div[position="3"] {
+    border-left: none;
+}
+/* middle cell needs no adjustments */
+div[position="5"] {
+    border-right: none;
+}
+div[position="6"] {
+    border-bottom: none;
+    border-left: none;
+}
+div[position="7"] {
+    border-bottom: none;
+}
+div[position="8"] {
+    border-right: none;
+    border-bottom: none;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 5; /* above the nested .cell children, which sit at z-index: auto, written with the help of Claude because CSS often didn't do what I intended to */ 
+    pointer-events: none;
+}
