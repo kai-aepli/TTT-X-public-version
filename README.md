@@ -16,7 +16,7 @@ Here, you can see another field where Z = 3 and N = 2.
 At the top, you can see two input forms (with info icons that explain the role of Z and N) and a "Generate Field" button. Choose the according Z and N value you want to play with and click on the button. The field will be recursively generated as well as with the game logic. Now, below the input forms, it says whether it is X or O's turn. One player is X, the other player is O. X starts by default. After each click, a cell will be occupied by X or O and the turns will switch from X to O and vice versa. In order to win a field, there must be 3 X's or O's aligned horizontally, vertically or diagonally. After you win within a field, that field will be yours (if X won within the field, the Tic-Tac-Toe field will have the value X. If you play with only 1 layer, you win instantly, because there is no bigger field.). Like that, you can occupy bigger and bigger fields until eventually, you win within the 9 big cells of the whole Tic-Tac-Toe board. If that happens, you win.
 
 ## Installation
-The project only contains source code. To run it, you just need to download everything and open it using a local server (VSCode's Live Server extension is recommended). Opening directly in file explorer may cause unexpected bugs.
+The project contains no packages. To run it, you just need to download everything and open it using a local server (VSCode's Live Server extension is recommended). Opening directly in file explorer may cause unexpected bugs.
 
 ## Implementation
 
